@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject hazards;
+    public GameObject[] hazards;
+    
     public Vector3 spawnValue;
     public int hazardCount;
     public float spawnWait;
@@ -16,14 +17,20 @@ public class GameController : MonoBehaviour
     public Text scoreText;
     public Text restartText;
     public Text gameOverText;
+    public Text winText; 
 
     private bool gameOver;
     private bool restart;
     private int score;
-
+    private PlayerController player;
     // Start is called before the first frame update
     void Start()
     {
+        GameObject game = GameObject.FindWithTag("Player");
+        if (game != null)
+            player = game.GetComponent<PlayerController>();
+        else
+            Debug.Log("Player GameObject not found");
         StartCoroutine (SpawnWaves());
         score = 0;
         gameOver = false;
@@ -38,7 +45,7 @@ public class GameController : MonoBehaviour
     {
         if(restart)
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.Z))
                 SceneManager.LoadScene("SampleScene");
         }
 
@@ -53,16 +60,17 @@ public class GameController : MonoBehaviour
         {
             for (int i = 0; i < hazardCount; i++)
             {
+                GameObject hazard = hazards[Random.Range(0, hazards.Length)];
                 Vector3 spawnPosition = new Vector3(Random.Range(-6, 6), spawnValue.y, spawnValue.z);
                 Quaternion spawnRotation = Quaternion.identity;
-                Instantiate(hazards, spawnPosition, spawnRotation);
+                Instantiate(hazard, spawnPosition, spawnRotation);
                 yield return new WaitForSeconds(spawnWait);
             }
             yield return new WaitForSeconds(waveWait);
 
             if (gameOver)
             {
-                restartText.text = "Press 'R' to restart";
+                restartText.text = "Press 'Z' to restart";
                 restart = true;
                 break;
             }
@@ -77,7 +85,14 @@ public class GameController : MonoBehaviour
     }
     void UpdateScore()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Points: " + score;
+        if(score >= 100)
+        {
+            winText.text = "You Win! Game created by Edward Tavarez";
+            gameOver = true;
+            restart = true;
+            player.gameObject.SetActive(false);
+        }
     }
 
     public void GameOver()

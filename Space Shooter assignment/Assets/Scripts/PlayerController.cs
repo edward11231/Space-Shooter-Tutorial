@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public Boundary boundary;
     public GameObject shot;
     public Transform shotSpawn;
-    public AudioSource source;
+    private AudioSource source;
 
     private Rigidbody rb;
     private float nextFire = 0.0f;
