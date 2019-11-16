@@ -86,7 +86,7 @@ public class GameController : MonoBehaviour
     void UpdateScore()
     {
         scoreText.text = "Points: " + score;
-        if(score >= 100)
+        if(score >= 100 && gameOver == false)
         {
             winText.text = "You Win! Game created by Edward Tavarez";
             gameOver = true;
@@ -97,7 +97,11 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        gameOverText.text = "Game Over";
-        gameOver = true;
+        if(score < 100)
+        {
+            gameOverText.text = "Game Over";
+            gameOver = true;
+        }
+        
     }
 }

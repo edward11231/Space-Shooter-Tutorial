@@ -1,14 +1,24 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BGScroller
     - DestroyByBoundary
     - DestroyByContact
     - DestroyByTime
+    - EnemyManeuver
     - GameController
     - Mover
     - PlayerController
     - RandomRotator
-    - Readme
+    - WeaponController
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
+    UnityEditor.TestRunner.dll:
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -72,14 +82,22 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9738}
     - Class: 114
-      Script: {instanceID: 10028}
+      Script: {instanceID: 9746}
     - Class: 114
-      Script: {instanceID: 10424}
+      Script: {instanceID: 9972}
     - Class: 114
-      Script: {instanceID: 10498}
+      Script: {instanceID: 10032}
+    - Class: 114
+      Script: {instanceID: 10188}
+    - Class: 114
+      Script: {instanceID: 10430}
+    - Class: 114
+      Script: {instanceID: 10504}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
@@ -598,7 +616,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: f10aa3b107d8a9818df64c991a8fa8a0
+      Hash: c85595304a0f25b169e22e2eefff0b2e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -608,6 +626,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAsset
+  - hash:
+      serializedVersion: 2
+      Hash: de7d6a5820dded6c7f75780e98f1dc41
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WeaponController
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -652,13 +676,19 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
+      Hash: 8a90a6a7785b9f7e14cb8e3897dd1aed
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BGScroller
+  - hash:
+      serializedVersion: 2
       Hash: 3aeec2416520303994f9d66901c73317
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Done_DestroyByContact
   - hash:
       serializedVersion: 2
-      Hash: 56d3bed0f2c5e7d10d7f45737e9c6f48
+      Hash: afc695194779420a07cd84e8e8cc0831
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -740,6 +770,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Done_DestroyByBoundary
+  - hash:
+      serializedVersion: 2
+      Hash: 0c8317cf77f81b7eee359f028042f84b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyManeuver
   - hash:
       serializedVersion: 2
       Hash: 58e68364412c67eae2bdb4954be2dcc2
